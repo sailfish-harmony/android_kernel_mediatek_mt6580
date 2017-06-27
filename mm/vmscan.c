@@ -1856,7 +1856,6 @@ module_param_named(threshold, vmscan_threshold, int, S_IRUGO | S_IWUSR);
 //#define LOGTAG "VMSCAN"
 static unsigned long t=0;
 static unsigned long history[2] = {0};
-extern int lowmem_minfree[9];
 #endif
 
 #endif // CONFIG_ZRAM
@@ -2015,7 +2014,7 @@ static void get_scan_count(struct lruvec *lruvec, struct scan_control *sc,
 
 		} else {
 			cached = global_page_state(NR_FILE_PAGES) - global_page_state(NR_SHMEM) - total_swapcache_pages();
-			if(cached > lowmem_minfree[2]) {
+			if(cached > 4*1024) {
 				anon_prio = vmscan_swappiness(sc);
 				file_prio = vmscan_swap_sum - vmscan_swappiness(sc);
 				//pr_debug(ANDROID_LOG_ERROR, LOGTAG, "2 anon_prio: %d, file_prio: %d \n",  anon_prio, file_prio);
