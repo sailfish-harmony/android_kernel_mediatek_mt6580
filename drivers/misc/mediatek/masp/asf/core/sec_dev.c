@@ -27,8 +27,8 @@
 #define MOD                         "ASF.DEV"
 #if defined(CONFIG_MTK_GPT_SCHEME_SUPPORT)
 #define PARTINFO_TITLE                      "Name"
-#define USER_REGION_PATH                    "/dev/block/mmcblk0"
-#define BOOT_REGION0_PATH                   "/dev/block/mmcblk0boot0"
+#define USER_REGION_PATH                    "/dev/mmcblk0"
+#define BOOT_REGION0_PATH                   "/dev/mmcblk0boot0"
 #define USER_REGION_PART_PATH_PREFIX        "/dev/block/platform/mtk-msdc.0/by-name/"
 
 #endif
